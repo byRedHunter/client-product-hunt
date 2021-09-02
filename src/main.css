@@ -4,12 +4,6 @@ html {
 	font-size: 62.5%;
 }
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
 :root {
 	--font-size: 1.6rem;
 	--font-family: 'Rajdhani', sans-serif;
@@ -17,6 +11,29 @@ html {
 	--yellow: #ffb319;
 	--dark: #000;
 	--light: #f4eddd;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scrollbar-width: thin;
+	scrollbar-color: var(--yellow) rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar {
+	overflow: overlay;
+	width: 0.8rem;
+	height: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+	display: initial;
+}
+
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(#420572, var(--yellow));
+	border-radius: 0.2rem;
 }
 
 body {
@@ -34,6 +51,10 @@ a {
 
 ul {
 	list-style: none;
+}
+
+img {
+	max-width: 100%;
 }
 
 input {
@@ -252,4 +273,63 @@ a.button {
 }
 .add-product .button-form {
 	margin-top: 0rem;
+}
+
+.products {
+	padding-bottom: 6rem;
+	padding-top: 2rem;
+}
+.products .wrapper {
+	display: grid;
+	row-gap: 4rem;
+	column-gap: 10rem;
+}
+
+.product-item {
+	width: 100%;
+	max-width: 70rem;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 35% 1fr;
+	column-gap: 1rem;
+}
+.product-item figure {
+	width: 100%;
+}
+.product-item figure img {
+	border-radius: 0.5rem;
+}
+.product-item h3 {
+	font-size: 2rem;
+	color: var(--yellow);
+	margin-bottom: 1rem;
+	cursor: pointer;
+}
+.product-item p {
+	font-size: 1.4rem;
+}
+.product-item .info {
+	display: flex;
+	align-items: center;
+	column-gap: 2rem;
+	margin: 1rem 0;
+}
+.product-item .info p {
+	display: flex;
+	column-gap: 0.5rem;
+	font-weight: 600;
+}
+.product-item .info p svg {
+	height: 2rem;
+}
+@media screen and (min-width: 800px) {
+	.product-item {
+		column-gap: 2rem;
+	}
+	.product-item h3 {
+		font-size: 2.4rem;
+	}
+	.product-item p {
+		font-size: 1.6rem;
+	}
 }

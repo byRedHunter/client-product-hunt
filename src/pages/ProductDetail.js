@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ProductDetail = () => {
-	return <div>product detail</div>
+	return <section className='detail'>product detail</section>
 }
 
 export default ProductDetail
