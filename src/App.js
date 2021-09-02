@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Header from './components/Header'
 import Login from './pages/Login'
+import NewProduct from './pages/NewProduct'
 import Populars from './pages/Populars'
 import ProductDetail from './pages/ProductDetail'
 import { Products } from './pages/Products'
@@ -29,6 +30,9 @@ function App() {
 				</Route>
 				<Route path='/product/:id'>
 					<ProductDetail />
+				</Route>
+				<Route path='/new-product'>
+					<NewProduct />
 				</Route>
 			</Switch>
 		</Router>

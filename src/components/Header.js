@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
-	const user = false
+	const user = true
 
 	return (
 		<header className='header'>

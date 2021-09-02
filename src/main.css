@@ -184,6 +184,16 @@ a.button {
 		transform: scale(0) rotate(360deg);
 	}
 }
+.form fieldset {
+	padding: 2rem;
+	border-radius: 1rem;
+	border: 0.3rem solid #3d0d62;
+	margin-bottom: 4rem;
+}
+.form legend {
+	font-weight: 600;
+	font-size: 2rem;
+}
 .form-title {
 	font-weight: 600;
 	font-size: 3rem;
@@ -207,6 +217,19 @@ a.button {
 	padding: 0 1rem;
 	color: var(--light);
 }
+.form-item input[type='file'] {
+	border: none;
+	padding: 0;
+}
+.form textarea {
+	height: 25rem;
+	border: 0.1rem solid var(--yellow);
+	font-family: var(--font-family);
+	padding: 1rem;
+	background: transparent;
+	border-radius: 0.5rem;
+	outline: none;
+}
 .form .button-form {
 	margin-top: 3rem;
 }
@@ -217,4 +240,16 @@ a.button {
 	.form-title {
 		margin-bottom: 4rem;
 	}
+}
+@media screen and (min-width: 900px) {
+	.form fieldset {
+		padding: 3rem;
+	}
+}
+
+.add-product {
+	padding: 2rem 0 6rem;
+}
+.add-product .button-form {
+	margin-top: 0rem;
 }
