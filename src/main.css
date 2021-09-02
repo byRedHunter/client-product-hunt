@@ -58,9 +58,21 @@ button {
 	background: var(--yellow);
 	color: var(--dark);
 }
+.button-form {
+	width: 100%;
+	height: 3.5rem;
+}
 
-.hidden {
-	display: none;
+a.button {
+	display: grid;
+	place-items: center;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+}
+
+.flex-center-x {
+	display: flex;
+	justify-content: center;
 }
 
 .wrapper {
@@ -75,6 +87,7 @@ button {
 	background: var;
 	position: relative;
 	background: var(--dark);
+	margin-bottom: 4rem;
 }
 .header .wrapper {
 	display: flex;
@@ -154,5 +167,54 @@ button {
 	}
 	.nav-actions p {
 		color: var(--light);
+	}
+}
+
+.form {
+	background: var(--dark);
+	border-radius: 1rem;
+	width: 100%;
+	max-width: 60rem;
+	padding: 3rem 2rem;
+	animation: form 0.5s ease-in;
+}
+@keyframes form {
+	from {
+		opacity: 0;
+		transform: scale(0) rotate(360deg);
+	}
+}
+.form-title {
+	font-weight: 600;
+	font-size: 3rem;
+	margin-bottom: 3rem;
+	color: var(--yellow);
+}
+.form-item {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	margin-bottom: 2rem;
+}
+.form-item label,
+.form-item input {
+	width: 100%;
+}
+.form-item input {
+	border: 0.1rem solid var(--yellow);
+	background: transparent;
+	height: 3.5rem;
+	padding: 0 1rem;
+	color: var(--light);
+}
+.form .button-form {
+	margin-top: 3rem;
+}
+@media screen and (min-width: 600px) {
+	.form {
+		padding: 5rem 4rem;
+	}
+	.form-title {
+		margin-bottom: 4rem;
 	}
 }

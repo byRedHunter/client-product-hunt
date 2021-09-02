@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Header = () => {
-	const user = true
+	const user = false
 
 	return (
 		<header className='header'>
@@ -39,8 +39,13 @@ const Header = () => {
 							</>
 						) : (
 							<>
-								<button className='button button-yellow'>Login</button>
-								<button className='button'>Crear Cuenta</button>
+								<Link to='/login' className='button button-yellow'>
+									Login
+								</Link>
+
+								<Link to='/register' className='button'>
+									Crear Cuenta
+								</Link>
 							</>
 						)}
 					</div>
