@@ -333,3 +333,81 @@ a.button {
 		font-size: 1.6rem;
 	}
 }
+.detail h1 {
+	color: var(--yellow);
+	font-size: 3rem;
+	margin-bottom: 2rem;
+}
+.product-small {
+	font-size: 1.4rem;
+}
+.detail-product figure {
+	margin: 2rem 0;
+}
+.detail-product figure img {
+	border-radius: 1rem;
+}
+.detail-product h2 {
+	margin: 2rem 0;
+	color: #c77eff;
+}
+.detail-product input {
+	margin-bottom: 0.5rem;
+	border: none;
+	width: 100%;
+	height: 3.5rem;
+	padding: 0 1rem;
+}
+.comments {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	row-gap: 2rem;
+	padding: 0 0 4rem 0;
+}
+.comments li {
+	border: 0.1rem solid #ccc;
+	border-radius: 0.5rem;
+	padding: 1rem;
+}
+.comments p.autor::after {
+	content: 'Autor';
+	background: var(--yellow);
+	color: var(--dark);
+	margin-left: 0.5rem;
+	padding: 0 0.3rem;
+	border-radius: 0.2rem;
+}
+.detail .message {
+	margin-bottom: 6rem;
+}
+.comments li p:last-child {
+	font-size: 1.4rem;
+	font-weight: 600;
+	margin-top: 1rem;
+}
+.detail aside {
+	display: flex;
+	flex-direction: column;
+	row-gap: 2rem;
+}
+.detail aside .button {
+	text-transform: uppercase;
+}
+.detail aside .button-web {
+	border: 0.1rem solid #ccc;
+}
+.detail aside .button-delete {
+	border: 0.1rem solid #f01010;
+}
+@media screen and (min-width: 768px) {
+	.detail .product {
+		display: grid;
+		grid-template-columns: 1fr 0.5fr;
+		gap: 4rem;
+	}
+	.detail form,
+	.comments {
+		width: 70%;
+	}
+}
