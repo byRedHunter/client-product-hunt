@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+html {
+	font-size: 62.5%;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--font-size: 1.6rem;
+	--font-family: 'Rajdhani', sans-serif;
+	--purple: #1b052d;
+	--yellow: #ffb319;
+	--dark: #000;
+	--light: #f4eddd;
+}
+
+body {
+	font-size: var(--font-size);
+	font-family: var(--font-family);
+	background: var(--purple);
+	color: var(--light);
+	font-weight: 500;
+}
+
+a {
+	text-decoration: none;
+	color: var(--light);
+}
+
+ul {
+	list-style: none;
+}
+
+input {
+	outline: none;
+	border-radius: 0.5rem;
+}
+
+button {
+	cursor: pointer;
+	border: none;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+}
+
+.button {
+	background: var(--purple);
+	color: var(--light);
+	font-size: 1.4rem;
+	font-weight: 400;
+}
+.button-yellow {
+	background: var(--yellow);
+	color: var(--dark);
+}
+
+.hidden {
+	display: none;
+}
+
+.wrapper {
+	width: 90%;
+	max-width: 120rem;
+	margin: 0 auto;
+}
+
+.header {
+	width: 100%;
+	height: 10rem;
+	background: var;
+	position: relative;
+	background: var(--dark);
+}
+.header .wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 6rem;
+}
+.logo {
+	font-weight: 700;
+	font-size: 2rem;
+}
+.logo a {
+	color: var(--yellow);
+}
+.header-form {
+	width: 50%;
+	max-width: 30rem;
+}
+.header-form input {
+	border-radius: 2rem;
+	background: var(--purple);
+	color: var(--light);
+	border: none;
+	padding: 0.5rem 1.5rem;
+	width: 100%;
+}
+.nav {
+	background: var(--light);
+	width: 100%;
+	height: 4rem;
+	position: absolute;
+	top: calc(100% - 4rem);
+	left: 0;
+	display: flex;
+	padding: 0 5%;
+	align-items: center;
+	justify-content: space-between;
+}
+.nav-menu,
+.nav-actions {
+	display: flex;
+	gap: 1rem;
+}
+.nav-menu-item a {
+	color: var(--dark);
+}
+.nav-actions p {
+	display: none;
+	line-height: 3rem;
+	color: var(--dark);
+}
+@media screen and (min-width: 600px) {
+	.nav-actions p {
+		display: initial;
+	}
+}
+@media screen and (min-width: 1000px) {
+	.header {
+		height: 7rem;
+	}
+	.header .wrapper {
+		justify-content: flex-start;
+		height: 100%;
+	}
+	.header-form {
+		margin: 0 3rem;
+	}
+	.nav {
+		position: initial;
+		top: initial;
+		left: initial;
+		padding: 0;
+		background: transparent;
+	}
+	.nav-menu-item a {
+		color: var(--light);
+	}
+	.nav-actions p {
+		color: var(--light);
+	}
+}
