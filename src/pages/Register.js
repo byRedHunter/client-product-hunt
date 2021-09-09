@@ -29,8 +29,16 @@ export const Register = () => {
 		if (name.trim() === '' || password.trim() === '' || email.trim() === '')
 			return showError('Complete todos los campos.')
 
-		// password minimo de 8 caracteres
 		// debe de ser un email valido
+		const regexEmail =
+			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+		if (!regexEmail.test(email))
+			return showError('Debe de ingresar un email válido.')
+
+		// password minimo de 8 caracteres
+		if (password.length < 8)
+			return showError('El password debe de tener minimo 8 caracteres.')
+
 		// pasar al action
 		registerUser({ name, email, password })
 	}

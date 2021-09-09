@@ -27,6 +27,10 @@ const Login = () => {
 			return showError('Complete todos los campos.')
 
 		// ingrese un email valido
+		const regexEmail =
+			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+		if (!regexEmail.test(email))
+			return showError('Debe de ingresar un email válido.')
 
 		loginUser({ email, password })
 	}
