@@ -1,21 +1,28 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import { es } from 'date-fns/locale'
 
-const Product = () => {
+const Product = ({ productInfo }) => {
+	const { _id, product, description, image, comments, hasVoted, created } =
+		productInfo
+
+	const history = useHistory()
+
+	const detailProduct = (id) => {
+		console.log(id)
+		history.push(`/product/${id}`)
+	}
+
 	return (
 		<article className='product-item'>
 			<figure>
-				<img
-					src='https://cdn.pixabay.com/photo/2021/01/05/05/30/grapes-5889697__340.jpg'
-					alt='product name'
-				/>
+				<img src={image} alt={product} />
 			</figure>
 
 			<div>
-				<h3>Nombre del producto</h3>
-				<p>
-					Aqui va toda la descripcion necesaria para el producto y algo mas que
-					quieras poner.
-				</p>
+				<h3 onClick={() => detailProduct(_id)}>{product}</h3>
+				<p>{description}</p>
 				<div className='info'>
 					<p>
 						<svg
@@ -30,7 +37,7 @@ const Product = () => {
 								clipRule='evenodd'
 							/>
 						</svg>{' '}
-						5
+						{comments.length}
 					</p>
 					<p>
 						<svg
@@ -45,10 +52,13 @@ const Product = () => {
 								clipRule='evenodd'
 							/>
 						</svg>{' '}
-						10
+						{hasVoted.length}
 					</p>
 				</div>
-				<p>Publicado hace: 1 semana</p>
+				<p>
+					Publicado hace:{' '}
+					{formatDistanceToNow(new Date(created), { locale: es })}
+				</p>
 			</div>
 		</article>
 	)
