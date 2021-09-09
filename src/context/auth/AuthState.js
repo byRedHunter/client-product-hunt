@@ -35,7 +35,9 @@ const AuthState = ({ children }) => {
 			userAuthenticated()
 		} catch (error) {
 			console.log(error.response)
-			showError(error.response.data.message)
+			showError(
+				error.response.data.message || error.response.data.errors[0].msg
+			)
 
 			dispatch({
 				type: PROCESS_ERROR,
@@ -59,7 +61,6 @@ const AuthState = ({ children }) => {
 			})
 		} catch (error) {
 			console.log(error.response)
-			showError(error.response.data.message)
 			dispatch({ type: PROCESS_ERROR })
 		}
 	}
@@ -84,7 +85,9 @@ const AuthState = ({ children }) => {
 			userAuthenticated()
 		} catch (error) {
 			console.log(error.response)
-			showError(error.response.data.message)
+			showError(
+				error.response.data.message || error.response.data.errors[0].msg
+			)
 			dispatch({ type: PROCESS_ERROR })
 		}
 	}
