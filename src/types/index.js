@@ -1,0 +1,7 @@
+export const REGISTER_USER = 'REGISTER_USER'
+export const VERIFY_USER = 'VERIFY_USER'
+export const LOGIN_USER = 'LOGIN_USER'
+export const EXIT_USER = 'EXIT_USER'
+
+export const PROCESS_ERROR = 'PROCESS_ERROR'
+export const PROCESS_SUCCESSFULLY = 'PROCESS_SUCCESSFULLY'

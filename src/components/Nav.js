@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { authContext } from '../context/auth/authContext'
 
 const Nav = () => {
-	const user = true
+	const authState = useContext(authContext)
+	const { user, closeSession } = authState
 
 	return (
 		<nav className='nav'>
@@ -23,9 +25,11 @@ const Nav = () => {
 			<div className='nav-actions'>
 				{user ? (
 					<>
-						<p hidden={!user}>Hola byRedHunter</p>
+						<p>Hola {user.name}</p>
 
-						<button className='button'>Cerrar Sesión</button>
+						<button className='button' onClick={closeSession}>
+							Cerrar Sesión
+						</button>
 					</>
 				) : (
 					<>

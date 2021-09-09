@@ -1,41 +1,20 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Header from './components/Header'
-import Login from './pages/Login'
-import NewProduct from './pages/NewProduct'
-import Populars from './pages/Populars'
-import ProductDetail from './pages/ProductDetail'
-import { Products } from './pages/Products'
-import { Register } from './pages/Register'
+import { ToastContainer } from 'react-toastify'
+import { authToken } from './config/axios'
+import AuthState from './context/auth/AuthState'
+import AppRoute from './routes/AppRoute'
+import 'react-toastify/dist/ReactToastify.css'
+
+// revisamos si existe el token para setear en la configuracion del header con axios
+const token = sessionStorage.getItem('token')
+if (token) authToken(token)
 
 function App() {
 	return (
-		<Router>
-			<Header />
+		<AuthState>
+			<AppRoute />
 
-			<Switch>
-				<Route exact path='/'>
-					<Products />
-				</Route>
-				<Route path='/products'>
-					<Products />
-				</Route>
-				<Route path='/login'>
-					<Login />
-				</Route>
-				<Route path='/register'>
-					<Register />
-				</Route>
-				<Route path='/populars'>
-					<Populars />
-				</Route>
-				<Route path='/product/:id'>
-					<ProductDetail />
-				</Route>
-				<Route path='/new-product'>
-					<NewProduct />
-				</Route>
-			</Switch>
-		</Router>
+			<ToastContainer />
+		</AuthState>
 	)
 }
 
