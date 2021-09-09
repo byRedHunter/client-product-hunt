@@ -1,5 +1,6 @@
 import {
 	EXIT_USER,
+	LOGIN_USER,
 	PROCESS_ERROR,
 	REGISTER_USER,
 	VERIFY_USER,
@@ -8,8 +9,7 @@ import {
 export const authReducer = (state, action) => {
 	switch (action.type) {
 		case REGISTER_USER:
-			console.log('llego al reducer')
-			console.log(action.payload)
+		case LOGIN_USER:
 			sessionStorage.setItem('token', action.payload)
 
 			return {

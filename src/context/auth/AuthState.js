@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react'
 import {
 	EXIT_USER,
+	LOGIN_USER,
 	PROCESS_ERROR,
 	REGISTER_USER,
 	VERIFY_USER,
@@ -75,7 +76,7 @@ const AuthState = ({ children }) => {
 			const token = response.data.token
 
 			dispatch({
-				type: REGISTER_USER,
+				type: LOGIN_USER,
 				payload: token,
 			})
 
