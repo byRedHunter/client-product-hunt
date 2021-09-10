@@ -9,3 +9,7 @@ export const canDelete = (user, author) => {
 
 	if (author.id === user._id) return true
 }
+
+export const orderByPopular = (listProducts) => {
+	return listProducts.sort((a, b) => b.votes - a.votes)
+}
