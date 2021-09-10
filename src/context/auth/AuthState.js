@@ -60,7 +60,6 @@ const AuthState = ({ children }) => {
 				payload: response.data,
 			})
 		} catch (error) {
-			console.log(error.response)
 			dispatch({ type: PROCESS_ERROR })
 		}
 	}

@@ -10,7 +10,6 @@ const Product = ({ productInfo }) => {
 	const history = useHistory()
 
 	const detailProduct = (id) => {
-		console.log(id)
 		history.push(`/product/${id}`)
 	}
 
