@@ -1,7 +1,8 @@
 import React, { useReducer } from 'react'
 import { clientAxios } from '../../config/axios'
-import { showError } from '../../config/toasts'
+import { showError, showSuccess } from '../../config/toasts'
 import {
+	CREATE_PRODUCT,
 	LIST_PRODUCTS,
 	LIST_PRODUCT_BY_ID,
 	REGISTER_COMMENT,
@@ -72,6 +73,20 @@ const ProductState = ({ children }) => {
 		}
 	}
 
+	// registrar un nuevo producto
+	const createProduct = async (product) => {
+		try {
+			// actualizamos en la db
+			const response = await clientAxios.post(`/product`, product)
+
+			dispatch({ type: CREATE_PRODUCT, payload: response.data })
+			showSuccess('Producto registrado correctamente.')
+		} catch (error) {
+			console.log(error.response)
+			showError(error.response.data.message)
+		}
+	}
+
 	return (
 		<productContext.Provider
 			value={{
@@ -81,6 +96,7 @@ const ProductState = ({ children }) => {
 				getProductById,
 				registerVote,
 				registerComment,
+				createProduct,
 			}}
 		>
 			{children}

@@ -1,4 +1,5 @@
 import {
+	CREATE_PRODUCT,
 	LIST_PRODUCTS,
 	LIST_PRODUCT_BY_ID,
 	REGISTER_COMMENT,
@@ -37,6 +38,12 @@ export const productReducer = (state, action) => {
 					...state.productSelected,
 					comments: [...state.productSelected.comments, action.payload],
 				},
+			}
+
+		case CREATE_PRODUCT:
+			return {
+				...state,
+				listProducts: [action.payload, ...state.listProducts],
 			}
 
 		default:
