@@ -8,6 +8,7 @@ import { productContext } from '../context/product/productContext'
 import { canDelete, isCreator } from '../utils/helpersProduct'
 import { authContext } from '../context/auth/authContext'
 import { showError, showWarning } from '../config/toasts'
+import Image from '../components/Image'
 
 const ProductDetail = () => {
 	const { id } = useParams()
@@ -89,12 +90,10 @@ const ProductDetail = () => {
 									Por: {productSelected.author.name} |{' '}
 									{productSelected.business}
 								</p>
-								<figure>
-									<img
-										src={productSelected.image}
-										alt={productSelected.product}
-									/>
-								</figure>
+								<Image
+									src={productSelected.image}
+									alt={productSelected.product}
+								/>
 
 								<p>{productSelected.description}</p>
 

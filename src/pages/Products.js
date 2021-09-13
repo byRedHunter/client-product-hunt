@@ -3,7 +3,7 @@ import Loader from '../components/Loader'
 import Product from '../components/Product'
 import { productContext } from '../context/product/productContext'
 
-export const Products = () => {
+const Products = () => {
 	const productState = useContext(productContext)
 	const { listProducts, getProducts } = productState
 
@@ -26,3 +26,5 @@ export const Products = () => {
 		</section>
 	)
 }
+
+export default Products

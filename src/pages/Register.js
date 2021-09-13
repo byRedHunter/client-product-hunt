@@ -4,7 +4,7 @@ import { showError } from '../config/toasts'
 import { authContext } from '../context/auth/authContext'
 import { useForm } from '../hooks/useForm'
 
-export const Register = () => {
+const Register = () => {
 	const authState = useContext(authContext)
 	const { authenticated, registerUser } = authState
 
@@ -83,3 +83,5 @@ export const Register = () => {
 		</section>
 	)
 }
+
+export default Register

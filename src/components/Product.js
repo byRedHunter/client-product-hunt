@@ -2,6 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { es } from 'date-fns/locale'
+import Image from './Image'
 
 const Product = ({ productInfo }) => {
 	const { _id, product, description, image, comments, hasVoted, created } =
@@ -15,9 +16,7 @@ const Product = ({ productInfo }) => {
 
 	return (
 		<article className='product-item'>
-			<figure>
-				<img src={image} alt={product} />
-			</figure>
+			<Image src={image} alt={product} />
 
 			<div>
 				<h3 onClick={() => detailProduct(_id)}>{product}</h3>
