@@ -2,11 +2,11 @@ import React, { useReducer } from 'react'
 import { clientAxios } from '../../config/axios'
 import { showError, showSuccess } from '../../config/toasts'
 import {
-	CREATE_PRODUCT,
 	LIST_PRODUCTS,
 	LIST_PRODUCT_BY_ID,
 	REGISTER_COMMENT,
 	REGISTER_VOTE,
+	SEARCH_PRODUCT,
 } from '../../types'
 import { productContext } from './productContext'
 import { productReducer } from './productReducer'
@@ -14,6 +14,7 @@ import { productReducer } from './productReducer'
 const ProductState = ({ children }) => {
 	const initialState = {
 		listProducts: [],
+		listSearch: [],
 		productSelected: null,
 	}
 
@@ -77,10 +78,35 @@ const ProductState = ({ children }) => {
 	const createProduct = async (product) => {
 		try {
 			// actualizamos en la db
-			const response = await clientAxios.post(`/product`, product)
+			await clientAxios.post(`/product`, product)
+			await getProducts()
 
-			dispatch({ type: CREATE_PRODUCT, payload: response.data })
+			//dispatch({ type: CREATE_PRODUCT, payload: response.data })
 			showSuccess('Producto registrado correctamente.')
+		} catch (error) {
+			console.log(error.response)
+			showError(error.response.data.message)
+		}
+	}
+
+	// buscar producto
+	const searchProduct = async (word) => {
+		try {
+			const response = await clientAxios.get(`/product/search/${word}`)
+
+			dispatch({ type: SEARCH_PRODUCT, payload: response.data })
+		} catch (error) {
+			console.log(error.response)
+			showError(error.response.data.message)
+		}
+	}
+
+	// eliminar producto
+	const deleteProduct = async (id) => {
+		try {
+			await clientAxios.delete(`/product/${id}`)
+			await getProducts()
+			showSuccess('Producto eliminado.')
 		} catch (error) {
 			console.log(error.response)
 			showError(error.response.data.message)
@@ -91,12 +117,15 @@ const ProductState = ({ children }) => {
 		<productContext.Provider
 			value={{
 				listProducts: state.listProducts,
+				listSearch: state.listSearch,
 				productSelected: state.productSelected,
 				getProducts,
 				getProductById,
 				registerVote,
 				registerComment,
 				createProduct,
+				searchProduct,
+				deleteProduct,
 			}}
 		>
 			{children}

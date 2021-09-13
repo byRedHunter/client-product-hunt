@@ -8,6 +8,7 @@ import Populars from '../pages/Populars'
 import ProductDetail from '../pages/ProductDetail'
 import { Products } from '../pages/Products'
 import { Register } from '../pages/Register'
+import Search from '../pages/Search'
 import { PrivateRoute } from './PrivateRoute'
 
 const AppRoute = () => {
@@ -30,6 +31,7 @@ const AppRoute = () => {
 				<Route exact path='/login' component={Login} />
 				<Route exact path='/populars' component={Populars} />
 				<Route exact path='/product/:id' component={ProductDetail} />
+				<Route exact path='/search-product/:word' component={Search} />
 
 				<PrivateRoute exact path='/new-product' component={NewProduct} />
 			</Switch>

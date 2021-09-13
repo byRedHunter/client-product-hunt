@@ -7,7 +7,9 @@ export const isCreator = (author, id) => {
 export const canDelete = (user, author) => {
 	if (!user) return false
 
-	if (author.id === user._id) return true
+	if (author._id === user.id) return true
+
+	return false
 }
 
 export const orderByPopular = (listProducts) => {

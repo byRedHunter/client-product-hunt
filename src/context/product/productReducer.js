@@ -1,9 +1,11 @@
 import {
 	CREATE_PRODUCT,
+	DELETE_PRODUCT,
 	LIST_PRODUCTS,
 	LIST_PRODUCT_BY_ID,
 	REGISTER_COMMENT,
 	REGISTER_VOTE,
+	SEARCH_PRODUCT,
 } from '../../types'
 
 export const productReducer = (state, action) => {
@@ -44,6 +46,21 @@ export const productReducer = (state, action) => {
 			return {
 				...state,
 				listProducts: [action.payload, ...state.listProducts],
+			}
+
+		case SEARCH_PRODUCT:
+			return {
+				...state,
+				listSearch: [...action.payload],
+			}
+
+		case DELETE_PRODUCT:
+			const rest = state.listProducts.filter(
+				(product) => product._id !== action.payload
+			)
+			return {
+				...state,
+				listProducts: rest,
 			}
 
 		default:

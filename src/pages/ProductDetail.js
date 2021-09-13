@@ -14,8 +14,13 @@ const ProductDetail = () => {
 	const history = useHistory()
 
 	const productState = useContext(productContext)
-	const { productSelected, getProductById, registerVote, registerComment } =
-		productState
+	const {
+		productSelected,
+		getProductById,
+		registerVote,
+		registerComment,
+		deleteProduct,
+	} = productState
 
 	const authState = useContext(authContext)
 	const { user } = authState
@@ -37,6 +42,14 @@ const ProductDetail = () => {
 
 		// actualizamos en el state y en la db
 		registerVote(productSelected._id, user.id)
+	}
+
+	const handleDelete = () => {
+		// verificar si existe un usuario logueado
+		if (!user) return history.push('/login')
+
+		deleteProduct(productSelected._id)
+		history.push('/')
 	}
 
 	const handleSubmit = (e) => {
@@ -147,7 +160,10 @@ const ProductDetail = () => {
 									Visitar Web
 								</a>
 								{canDelete(user, productSelected.author) && (
-									<button className='button button-form button-delete'>
+									<button
+										className='button button-form button-delete'
+										onClick={handleDelete}
+									>
 										Eliminar Producto
 									</button>
 								)}
